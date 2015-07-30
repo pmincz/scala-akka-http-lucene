@@ -19,7 +19,7 @@ libraryDependencies ++= {
   val lucene = "5.2.1"
   Seq(
     "com.typesafe.akka" %% "akka-http-experimental"       % akkaHttp,
-    "de.heikoseeberger" %% "akka-http-json4s"             % "0.9.1",
+    "de.heikoseeberger" %% "akka-http-json4s"             % "1.0.0",
     "org.json4s"        %% "json4s-jackson"               % "3.2.11",
     "com.typesafe.akka" %% "akka-slf4j"                   % akka,
     "org.apache.lucene" %  "lucene-core"                  % lucene,
