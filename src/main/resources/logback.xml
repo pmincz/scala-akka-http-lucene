@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{1} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="UDP" class="com.despegar.util.logback.UdpAppender">
+        <addr>10.254.150.99:32503</addr>
+        <layout>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss} %-5level ${HOSTNAME} [%X{uow}][%X{sourceThread}] [%X{akkaSource}] %logger{55} - %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <logger name="akka" level="DEBUG"/>
+    <logger name="scala.slick" level="INFO"/>
+    <logger name="slick" level="INFO"/>
+    <logger name="com.typesafe.slick" level="INFO"/>
+    <logger name="com.wordnik" level="INFO"/>
+    <logger name="com.gettyimages" level="INFO"/>
+
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="UDP" />
+    </root>
+
+</configuration>
